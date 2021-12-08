@@ -1,4 +1,4 @@
-package com.cicdlectures.menuserver.model;
+git logpackage com.cicdlectures.menuserver.model;
 
 import java.util.Set;
 
