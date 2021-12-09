@@ -9,4 +9,5 @@ jobs:
       options: --user=root
     steps:
       - uses: actions/checkout@v2
-      - run: cat README.txt | cowsay # Affiche le contenu du fichier `README.md` à la base du dépôt
+      - run: cat README.txt | cowsay
+      - run: java -version
