@@ -44,10 +44,10 @@ public class MenuDto {
     return menus;
   }
 
-  public static MenuDto fromModel(Menu menu) {
+  public static MenuDto fromModel(java.awt.Menu menu) {
     return new MenuDto()
       .setId(menu.getId())
-      .setName("TEST TODO")
+      .setName(menu.getName())
       .setDishes(DishDto.fromModelSet(menu.getDishes()));
   }
 }
