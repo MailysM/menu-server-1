@@ -4,9 +4,7 @@
     <groupId>com.cicdlectures</groupId>
     <artifactId>menuserver</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <name>menu-server</name>
-
+    
     <parent>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-parent</artifactId>
