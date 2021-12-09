@@ -10,4 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cat README.txt | cowsay
-      - run: java -version
+  java :
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+    - run: java -version
