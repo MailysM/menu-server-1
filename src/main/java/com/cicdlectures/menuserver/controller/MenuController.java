@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+
 
 import com.cicdlectures.menuserver.dto.MenuDto;
 import com.cicdlectures.menuserver.service.CreateMenuService;
@@ -44,13 +47,8 @@ public class MenuController {
   }
 
   @DeleteMapping(value = "/menus/{id}")
-  public void deleteMenu(@RequestBody MenuDto menu){
-
-        if (menuRepository.deleteById(id)) {
-          return new ResponseEntity<>(id, HttpStatus.OK);
-        }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  public void deleteMenu(@PathVariable Long id){
+    menuRepository.deleteById(id);
   }
 }
   
