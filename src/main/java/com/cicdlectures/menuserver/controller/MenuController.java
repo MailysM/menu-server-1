@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import com.cicdlectures.menuserver.dto.MenuDto;
 import com.cicdlectures.menuserver.service.CreateMenuService;
 import com.cicdlectures.menuserver.service.ListMenuService;
+import com.cicdlectures.menuserver.repository.MenuRepository;
 
 @RestController
 public class MenuController {
@@ -20,6 +21,8 @@ public class MenuController {
   private final CreateMenuService createMenuService;
 
   private final ListMenuService listMenuService;
+
+  private final MenuRepository menuRepository;
 
   @Autowired
   MenuController(CreateMenuService createMenuService, ListMenuService listMenuService) {
