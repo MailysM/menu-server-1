@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -25,9 +26,10 @@ public class MenuController {
   private final MenuRepository menuRepository;
 
   @Autowired
-  MenuController(CreateMenuService createMenuService, ListMenuService listMenuService) {
+  MenuController(CreateMenuService createMenuService, ListMenuService listMenuService, MenuRepository menuRepository) {
     this.createMenuService = createMenuService;
     this.listMenuService = listMenuService;
+    this.menuRepository = menuRepository;
   }
 
   @GetMapping(path = "/menus", produces = "application/json")
@@ -40,4 +42,15 @@ public class MenuController {
   public MenuDto createMenu(@RequestBody MenuDto menu) {
     return createMenuService.createMenu(menu);
   }
+
+  @DeleteMapping(value = "/menus/{id}")
+  public void deleteMenu(@RequestBody MenuDto menu){
+
+        if (menuRepository.deleteById(id)) {
+          return new ResponseEntity<>(id, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  }
 }
+  
