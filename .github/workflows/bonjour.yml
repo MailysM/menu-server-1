@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cat README.txt | cowsay
-  java :
+  run-mvn :
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
@@ -18,4 +18,4 @@ jobs:
       with:
         distribution: 'zulu' # See 'Supported distributions' for available options
         java-version: '11'
-    - run: java-version
+    - run: java -version
