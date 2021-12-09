@@ -46,8 +46,8 @@ public class MenuController {
     return createMenuService.createMenu(menu);
   }
 
-  @DeleteMapping(value = "/menus/{id}")
-  public void deleteMenu(@PathVariable Long id){
+  @DeleteMapping(path = "/menus/{id}")
+  public void deleteMenus(@PathVariable Long id){
     menuRepository.deleteById(id);
   }
 }
