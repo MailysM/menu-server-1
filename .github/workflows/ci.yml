@@ -10,9 +10,10 @@ jobs:
       with:
         distribution: 'zulu' # See 'Supported distributions' for available options
         java-version: '11' # set java version 11 like gitpod
-    - run: java -version
-    - run: mvn -v
-    - run: mvn help:effective-pom  # affiche le pom.xml effectif
+    #- run: java -version
+    #- run: mvn -v
+    #- run: mvn help:effective-pom  # affiche le pom.xml effectif
+
     - run: mvn package
 
     - uses: actions/upload-artifact@v2
