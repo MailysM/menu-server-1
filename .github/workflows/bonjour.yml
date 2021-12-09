@@ -19,3 +19,5 @@ jobs:
         distribution: 'zulu' # See 'Supported distributions' for available options
         java-version: '11'
     - run: java -version
+    - run: mvn -v
+    - run: mvn effective:pom
