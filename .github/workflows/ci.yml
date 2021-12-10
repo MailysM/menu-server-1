@@ -16,3 +16,34 @@ jobs:
       with:
         name: menu-server
         path: ./target/menu-server.jar
+
+  release:
+    runs-on: ubuntu-20.04
+    # Lance le job release si build et test se sont terminés normalement.
+    needs: build
+    # Lance le job release uniquement si la branche est main.
+    if: contains(github.ref, 'ref/tags/v')
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: menu-server
+      - run: unzip menu-server
+      - uses: actions/create-release@v1
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./target/menu-server.jar
+          asset_name: menu-server.jar
+          asset_content_type: application/jar
