@@ -16,3 +16,12 @@ jobs:
       with:
         name: menu-server
         path: ./target/menu-server.jar
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2 # read depo git
+    - uses: actions/setup-java@v2 #set java
+      with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '11' # set java version 11 like gitpod
+    - run: mvn verify

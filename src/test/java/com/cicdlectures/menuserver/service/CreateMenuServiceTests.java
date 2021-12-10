@@ -22,34 +22,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateMenuServiceTests {
     
-    private CreateMenuService createMenuService;
-    private MenuRepository menuRepository;
-    private DishRepository dishRepository;
+  //   private CreateMenuService createMenuService;
+  //   private MenuRepository menuRepository;
+  //   private DishRepository dishRepository;
 
-    @BeforeEach
-  public void init() {
-    this.menuRepository = mock(MenuRepository.class);
-    this.dishRepository = mock(dishRepository.class);
-    this.createMenuService = new CreateMenuService(this.menuRepository, this.menuRepository);
-  }
+  //   @BeforeEach
+  // public void init() {
+  //   this.menuRepository = mock(MenuRepository.class);
+  //   this.dishRepository = mock(dishRepository.class);
+  //   this.createMenuService = new CreateMenuService(this.menuRepository, this.menuRepository);
+  // }
   
-  @Test
-  @DisplayName("lists all known menus")
-  public void firstListsKnownMenus() {
-    // Défini une liste de menus avec un menus.
-  Iterable<MenuDto> existingMenus = Arrays.asList(
-    new MenuDto(
-      Long.valueOf(1),
-      "Christmas menu",
-      new HashSet<>(
-        Arrays.asList(
-          new Dish(Long.valueOf(1), "Turkey", null),
-          new Dish(Long.valueOf(2), "Pecan Pie", null),
-          new Dish(Long.valueOf(3), "Turkey", null)
-        )
-      )
-    )
-  );
+  // @Test
+  // @DisplayName("lists all known menus")
+  // public void firstListsKnownMenus() {
+  //   // Défini une liste de menus avec un menus.
+  // Iterable<MenuDto> existingMenus = Arrays.asList(
+  //   new MenuDto(
+  //     Long.valueOf(1),
+  //     "Christmas menu",
+  //     new HashSet<>(
+  //       Arrays.asList(
+  //         new Dish(Long.valueOf(1), "Turkey", null),
+  //         new Dish(Long.valueOf(2), "Pecan Pie", null),
+  //         new Dish(Long.valueOf(3), "Turkey", null)
+  //       )
+  //     )
+  //   )
+  // );
 
-  }
+  // }
 }
