@@ -44,7 +44,7 @@ public class MenuDto {
     return menus;
   }
 
-  public static MenuDto fromModel(java.awt.Menu menu) {
+  public static MenuDto fromModel(Menu menu) {
     return new MenuDto()
       .setId(menu.getId())
       .setName(menu.getName())
