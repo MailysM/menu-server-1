@@ -89,5 +89,6 @@ public void listsAllMenus() throws Exception {
    // On défini wantMenus, les résultats attendus
    
    assertEquals(wantMenus,gotMenus[0]);
+   assertEquals(1,gotMenus.length);
 }
 }
