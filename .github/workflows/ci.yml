@@ -27,7 +27,6 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: menu-server
-          path: ./target/menu-server.jar
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -46,6 +45,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./target/menu-server.jar
+          asset_path: menu-server.jar
           asset_name: menu-server.jar
           asset_content_type: application/jar
