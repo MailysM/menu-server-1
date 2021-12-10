@@ -45,6 +45,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: menu-server.jar
           asset_name: menu-server.jar
           asset_content_type: application/jar
