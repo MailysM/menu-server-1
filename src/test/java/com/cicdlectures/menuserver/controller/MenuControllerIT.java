@@ -52,17 +52,17 @@ public void listsAllMenus() throws Exception {
     //Creer un menu dans le menuRepository
     Menu existingMenus =
     new Menu(
-      Long.valueOf(1),
+      null,
       "Christmas menu",
       new HashSet<>(
         Arrays.asList(
-          new Dish(Long.valueOf(1), "Turkey", null),
-          new Dish(Long.valueOf(2), "Pecan Pie", null)
+          new Dish(null, "Turkey", null),
+          new Dish(null, "Pecan Pie", null)
         )
       )
   );
 
-  Iterable<MenuDto> wantMenus = Arrays.asList(
+  MenuDto wantMenus =
         new MenuDto(
         Long.valueOf(1),
         "Christmas menu",
@@ -72,7 +72,7 @@ public void listsAllMenus() throws Exception {
             new DishDto(Long.valueOf(2), "Pecan Pie")
             )
         )
-        )
+        
     );
    existingMenus = menuRepository.save(existingMenus);
     // Effectue une requête GET /menus
@@ -88,6 +88,6 @@ public void listsAllMenus() throws Exception {
    //Verifie que le menuDto est ok
    // On défini wantMenus, les résultats attendus
    
-   assertEquals(wantMenus,gotMenus);
+   assertEquals(wantMenus,gotMenus[0]);
 }
 }
